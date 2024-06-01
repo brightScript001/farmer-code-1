@@ -39,7 +39,7 @@
 }
 
 .signup-form a {
-  color: #009688;
+  color: rgba(91, 170, 96, 1);
   text-decoration: none;
 }
 
@@ -100,7 +100,7 @@
     align-items: center;
     margin: 0;
     padding: 0;
-    background-image: url("../../../assets/signup_buyer.png");
+    background-image: url("../../../../assets/signup_buyer.png");
     background-size: cover;
     background-position: center;
     height: 100%;

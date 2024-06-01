@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUpForm.css";
 import Input from "../Input/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
-import SellerBg from "../../../assets/Seller BG.png";
-import BuyerBg from "../../../assets/Buyer BG.png";
+import logo from "../../../../assets/Onefarm-Tech-Logo 2.png";
+import SellerBg from "../../../../assets/Seller BG.png";
+import BuyerBg from "../../../../assets/Buyer BG.png";
 
 const SignUpForm = ({ selectedRole }) => {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +16,8 @@ const SignUpForm = ({ selectedRole }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showCriteria, setShowCriteria] = useState(false);
+
+  const navigate = useNavigate();
 
   const passwordCriteria = [
     { regex: /.{8,}/, message: "Password must be at least 8 characters long" },
@@ -60,9 +63,11 @@ const SignUpForm = ({ selectedRole }) => {
       confirmPassword,
       selectedRole,
     });
+    navigate("/verify-email", {
+      state: { userName: `${firstName} ${lastName}` },
+    });
   };
 
-  // Choose background image based on the selected role
   const backgroundImage = selectedRole === "Buyer" ? BuyerBg : SellerBg;
 
   return (

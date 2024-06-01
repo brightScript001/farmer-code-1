@@ -1,0 +1,60 @@
+.verify-email-success-container {
+  display: flex;
+  height: 100vh;
+}
+
+.verify-email-success-image {
+  flex: 1;
+}
+
+.verify-email-success-image img {
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+}
+
+.verify-email-success-content {
+  flex: 1;
+  padding: 2rem;
+  text-align: left;
+}
+
+.verify-email-success-content .logo {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.verify-email-success-content h2 {
+  margin-bottom: 1rem;
+}
+
+.verify-email-success-content p span {
+  font-weight: 600;
+}
+
+.verify-email-success-content p {
+  margin-bottom: 1rem;
+}
+.bold {
+  font-weight: 600;
+}
+
+.login-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 1024px) {
+  .verify-email-success-image {
+    display: none;
+  }
+}
