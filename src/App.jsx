@@ -1,13 +1,19 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RoleSelection from "./components/RoleSelection/RoleSelection";
+import BuyerSignUp from "./components/BuyerSignUp/BuyerSignUp";
+import SellerSignUp from "./components/SellerSignUp/SellerSignUp";
 
-function App() {
+const App = () => {
   return (
-    <div className="app-container">
-      <RoleSelection />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RoleSelection />} />
+        <Route path="/buyersignup" element={<BuyerSignUp />} />
+        <Route path="/sellersignup" element={<SellerSignUp />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
