@@ -1,5 +1,4 @@
 import React from "react";
-import "./BuyerSignUp.css";
 import SignUpForm from "../shared/SignUpForm/SignUpForm";
 
 const BuyerSignUp = () => {

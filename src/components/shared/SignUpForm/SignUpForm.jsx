@@ -63,85 +63,87 @@ const SignUpForm = ({ selectedRole }) => {
   };
 
   // Choose background image based on the selected role
-  const backgroundImage = selectedRole === "Seller" ? BuyerBg : SellerBg;
+  const backgroundImage = selectedRole === "Buyer" ? BuyerBg : SellerBg;
 
   return (
-    <div className="signup-container">
-      <div className="signup-image">
-        <img src={backgroundImage} alt="Background" />
-      </div>
-      <div className="signup-form">
-        <img src={logo} alt="Logo" className="logo" />
-        <h2>Create a {selectedRole} account</h2>
-        <p>
-          Already have an account? <a href="/login">Login here</a>
-        </p>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            label="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <Input
-            type="text"
-            label="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <Input
-            type="email"
-            label="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            type={showPassword ? "text" : "password"}
-            label="Password"
-            value={password}
-            onChange={handlePasswordChange}
-            icon={
-              showPassword ? (
-                <FaEyeSlash onClick={() => setShowPassword(false)} />
-              ) : (
-                <FaEye onClick={() => setShowPassword(true)} />
-              )
-            }
-          />
-          {showCriteria && (
-            <div className="password-criteria">
-              {validatePassword(password).map((criteria, index) => (
-                <p
-                  key={index}
-                  className={`criteria-message ${
-                    criteria.isValid ? "valid" : "invalid"
-                  }`}
-                >
-                  {criteria.message}
-                </p>
-              ))}
-            </div>
-          )}
-          <Input
-            type={showConfirmPassword ? "text" : "password"}
-            label="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            icon={
-              showConfirmPassword ? (
-                <FaEyeSlash onClick={() => setShowConfirmPassword(false)} />
-              ) : (
-                <FaEye onClick={() => setShowConfirmPassword(true)} />
-              )
-            }
-          />
-          <p className={password === confirmPassword ? "valid" : "invalid"}>
-            {password !== confirmPassword && "Passwords do not match"}
+    <div className="main-container">
+      <div className="signup-container">
+        <div className="signup-image">
+          <img src={backgroundImage} alt="Background" />
+        </div>
+        <div className="signup-form">
+          <img src={logo} alt="Logo" className="logo" />
+          <h2>Create a {selectedRole} account</h2>
+          <p>
+            Already have an account? <a href="/login">Login here</a>
           </p>
-          <button type="submit" className="create-account-button">
-            Create Account
-          </button>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              label="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <Input
+              type="text"
+              label="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+            <Input
+              type="email"
+              label="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              type={showPassword ? "text" : "password"}
+              label="Password"
+              value={password}
+              onChange={handlePasswordChange}
+              icon={
+                showPassword ? (
+                  <FaEyeSlash onClick={() => setShowPassword(false)} />
+                ) : (
+                  <FaEye onClick={() => setShowPassword(true)} />
+                )
+              }
+            />
+            {showCriteria && (
+              <div className="password-criteria">
+                {validatePassword(password).map((criteria, index) => (
+                  <p
+                    key={index}
+                    className={`criteria-message ${
+                      criteria.isValid ? "valid" : "invalid"
+                    }`}
+                  >
+                    {criteria.message}
+                  </p>
+                ))}
+              </div>
+            )}
+            <Input
+              type={showConfirmPassword ? "text" : "password"}
+              label="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              icon={
+                showConfirmPassword ? (
+                  <FaEyeSlash onClick={() => setShowConfirmPassword(false)} />
+                ) : (
+                  <FaEye onClick={() => setShowConfirmPassword(true)} />
+                )
+              }
+            />
+            <p className={password === confirmPassword ? "valid" : "invalid"}>
+              {password !== confirmPassword && "Passwords do not match"}
+            </p>
+            <button type="submit" className="create-account-button">
+              Create Account
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

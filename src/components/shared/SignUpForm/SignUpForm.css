@@ -1,11 +1,10 @@
+/* SignUpForm.css */
 .signup-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  margin: 0;
   padding: 0;
-  /* max-height: 100vh; */
+  margin: 0;
 }
 
 .signup-image {
@@ -21,7 +20,6 @@
   width: 50%;
   padding: 30px;
   border-radius: 8px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .logo {
@@ -93,19 +91,25 @@
 .create-account-button:hover {
   background-color: #45a049;
 }
+
 /* Media queries for responsiveness on mobile and tablet */
-@media (max-width: 768px) {
-  .signup-container {
+@media (max-width: 1024px) {
+  .main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    padding: 20px;
-    background-image: url("https://example.com/path/to/image.jpg");
+    margin: 0;
+    padding: 0;
+    background-image: url("../../../assets/signup_buyer.png");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100%;
   }
+
+  .signup-container {
+    padding: 2.5rem;
+  }
+
   .signup-image {
     display: none;
   }
@@ -113,9 +117,36 @@
   .signup-form {
     width: 100%;
     max-width: 400px;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /*border: 1px solid #ddd; */
+    background-color: var(--card-bg-color);
+    opacity: var(--card-opacity);
+    color: white; /* Text color inside the card */
+  }
+
+  /* Define CSS variables for background color and opacity */
+  :root {
+    --card-bg-color: black;
+    --card-opacity: 0.8; /* Change opacity value as needed */
+  }
+
+  /* Detect device theme and update CSS variable accordingly */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --card-bg-color: black;
+      --card-opacity: 0.8;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --card-bg-color: white; /* Change to light color */
+      --card-opacity: 0.9; /* Adjust opacity for light theme */
+    }
+
+    .signup-form {
+      color: black; /* Text color inside the card on light theme */
+    }
   }
 }
