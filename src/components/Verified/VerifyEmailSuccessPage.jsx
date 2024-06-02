@@ -37,7 +37,7 @@ const VerifyEmailSuccessPage = () => {
           Hi <span>{userName}</span> ,
         </p>
         <p>
-          Your email has been verified successfully. We will be redirecting you
+          Your email has been verified successfully We will be redirecting you
           to login to your dashboard and start buying fresh farm products.
         </p>
         <p>Redirecting in {countdown}s</p>
