@@ -1,0 +1,24 @@
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-icon {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+.input-field:focus {
+  border-color: #009688;
+}

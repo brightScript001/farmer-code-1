@@ -1,0 +1,147 @@
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.login-image {
+  width: 50%;
+}
+
+.login-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.login-form {
+  width: 50%;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.login-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-form p {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-form a {
+  color: rgba(91, 170, 96, 1);
+  text-decoration: none;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-selection {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.role-selection label {
+  margin-bottom: 5px;
+  font-weight: medium;
+}
+
+.role-selection select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.login-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+/* Media queries for responsiveness on mobile and tablet */
+@media (max-width: 1024px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-image: url("../../../assets/signup_buyer.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
+
+  .login-container {
+    padding: 2.5rem;
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-bg-color);
+    opacity: var(--card-opacity);
+    color: white;
+  }
+
+  :root {
+    --card-bg-color: black;
+    --card-opacity: 0.8;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --card-bg-color: black;
+      --card-opacity: 0.8;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --card-bg-color: white;
+      --card-opacity: 0.9;
+    }
+
+    .login-form {
+      color: black;
+    }
+  }
+}
