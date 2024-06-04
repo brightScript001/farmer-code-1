@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SentEmailPage.css";
-import logo from "../../assets/Onefarm-Tech-Logo 2.png";
-import SentEmailImage from "../../assets/Buyer BG.png";
+import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
+import SentEmailImage from "../../../assets/Buyer BG.png";
 
 const SentEmailPage = () => {
   const navigate = useNavigate("/reset-password");

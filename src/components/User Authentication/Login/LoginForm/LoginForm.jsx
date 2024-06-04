@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import Input from "../Input/input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
-import SellerBg from "../../../assets/Seller BG.png";
-import BuyerBg from "../../../assets/Buyer BG.png";
+import logo from "../../../../assets/Onefarm-Tech-Logo 2.png";
+import SellerBg from "../../../../assets/Seller BG.png";
+import BuyerBg from "../../../../assets/Buyer BG.png";
 
 const LoginForm = () => {
   const [formObj, setFormObj] = useState({

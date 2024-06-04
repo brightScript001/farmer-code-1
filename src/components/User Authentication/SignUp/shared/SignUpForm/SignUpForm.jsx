@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./SignUpForm.css";
 import Input from "../Input/Input";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import logo from "../../../../assets/Onefarm-Tech-Logo 2.png";
-import SellerBg from "../../../../assets/Seller BG.png";
-import BuyerBg from "../../../../assets/Buyer BG.png";
+import logo from "../../../../../assets/Onefarm-Tech-Logo 2.png";
+import SellerBg from "../../../../../assets/Seller BG.png";
+import BuyerBg from "../../../../../assets/Buyer BG.png";
 
 const SignUpForm = ({ selectedRole }) => {
   const [formObj, setFormObj] = useState({

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ForgotPasswordPage.css";
-import logo from "../../assets/Onefarm-Tech-Logo 2.png";
+import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("");

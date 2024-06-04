@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PasswordResetSuccessPage.css";
-import logo from "../../assets/Onefarm-Tech-Logo 2.png";
-import SentEmailImage from "../../assets/Buyer BG.png";
+import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
+import SentEmailImage from "../../../assets/Buyer BG.png";
 
 const PasswordResetSuccessPage = () => {
   const navigate = useNavigate();

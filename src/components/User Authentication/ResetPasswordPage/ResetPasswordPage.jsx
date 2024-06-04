@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi"; // Import eye icons from react-icons library
-import logo from "../../assets/Onefarm-Tech-Logo 2.png";
-import SentEmailImage from "../../assets/VerifyEmail.png";
+import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
+import SentEmailImage from "../../../assets/VerifyEmail.png";
 import "./ResetPasswordPage.css";
 
 const ResetPasswordPage = () => {

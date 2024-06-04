@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./RoleSelection.css";
-import Buyer from "../../assets/signup_buyer.png";
-import Seller from "../../assets/signup_seller.png";
+import Buyer from "../../../assets/signup_buyer.png";
+import Seller from "../../../assets/signup_seller.png";
 
 const RoleSelection = () => {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./VerifyEmailSuccessPage.css";
-import logo from "../../assets/Onefarm-Tech-Logo 2.png";
-import emailImage from "../../assets/VerifyEmail.png";
+import logo from "../../../assets/Onefarm-Tech-Logo 2.png";
+import emailImage from "../../../assets/VerifyEmail.png";
 
 const VerifyEmailSuccessPage = () => {
   const navigate = useNavigate();
