@@ -8,14 +8,16 @@ import SellerBg from "../../../../assets/Seller BG.png";
 import BuyerBg from "../../../../assets/Buyer BG.png";
 
 const SignUpForm = ({ selectedRole }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [showCriteria, setShowCriteria] = useState(false);
+  const [formObj, setFormObj] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    showPassword: false,
+    showConfirmPassword: false,
+    showCriteria: false,
+  });
 
   const navigate = useNavigate();
 
@@ -44,27 +46,25 @@ const SignUpForm = ({ selectedRole }) => {
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    if (!showCriteria) setShowCriteria(true);
+    setFormObj({ ...formObj, password: e.target.value });
+    if (!formObj.showCriteria) setFormObj({ ...formObj, showCriteria: true });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (
-      !validatePassword(password).every((criteria) => criteria.isValid) ||
-      password !== confirmPassword
+      !validatePassword(formObj.password).every(
+        (criteria) => criteria.isValid
+      ) ||
+      formObj.password !== formObj.confirmPassword
     )
       return;
     console.log("Form submitted:", {
-      firstName,
-      lastName,
-      email,
-      password,
-      confirmPassword,
+      ...formObj,
       selectedRole,
     });
     navigate("/verify-email", {
-      state: { userName: `${firstName} ${lastName}` },
+      state: { userName: `${formObj.firstName} ${formObj.lastName}` },
     });
   };
 
@@ -86,37 +86,51 @@ const SignUpForm = ({ selectedRole }) => {
             <Input
               type="text"
               label="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={formObj.firstName}
+              onChange={(e) =>
+                setFormObj({ ...formObj, firstName: e.target.value })
+              }
             />
             <Input
               type="text"
               label="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              value={formObj.lastName}
+              onChange={(e) =>
+                setFormObj({ ...formObj, lastName: e.target.value })
+              }
             />
             <Input
               type="email"
               label="Email Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formObj.email}
+              onChange={(e) =>
+                setFormObj({ ...formObj, email: e.target.value })
+              }
             />
             <Input
-              type={showPassword ? "text" : "password"}
+              type={formObj.showPassword ? "text" : "password"}
               label="Password"
-              value={password}
+              value={formObj.password}
               onChange={handlePasswordChange}
               icon={
-                showPassword ? (
-                  <FaEyeSlash onClick={() => setShowPassword(false)} />
+                formObj.showPassword ? (
+                  <FaEyeSlash
+                    onClick={() =>
+                      setFormObj({ ...formObj, showPassword: false })
+                    }
+                  />
                 ) : (
-                  <FaEye onClick={() => setShowPassword(true)} />
+                  <FaEye
+                    onClick={() =>
+                      setFormObj({ ...formObj, showPassword: true })
+                    }
+                  />
                 )
               }
             />
-            {showCriteria && (
+            {formObj.showCriteria && (
               <div className="password-criteria">
-                {validatePassword(password).map((criteria, index) => (
+                {validatePassword(formObj.password).map((criteria, index) => (
                   <p
                     key={index}
                     className={`criteria-message ${
@@ -129,20 +143,37 @@ const SignUpForm = ({ selectedRole }) => {
               </div>
             )}
             <Input
-              type={showConfirmPassword ? "text" : "password"}
+              type={formObj.showConfirmPassword ? "text" : "password"}
               label="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={formObj.confirmPassword}
+              onChange={(e) =>
+                setFormObj({ ...formObj, confirmPassword: e.target.value })
+              }
               icon={
-                showConfirmPassword ? (
-                  <FaEyeSlash onClick={() => setShowConfirmPassword(false)} />
+                formObj.showConfirmPassword ? (
+                  <FaEyeSlash
+                    onClick={() =>
+                      setFormObj({ ...formObj, showConfirmPassword: false })
+                    }
+                  />
                 ) : (
-                  <FaEye onClick={() => setShowConfirmPassword(true)} />
+                  <FaEye
+                    onClick={() =>
+                      setFormObj({ ...formObj, showConfirmPassword: true })
+                    }
+                  />
                 )
               }
             />
-            <p className={password === confirmPassword ? "valid" : "invalid"}>
-              {password !== confirmPassword && "Passwords do not match"}
+            <p
+              className={
+                formObj.password === formObj.confirmPassword
+                  ? "valid"
+                  : "invalid"
+              }
+            >
+              {formObj.password !== formObj.confirmPassword &&
+                "Passwords do not match"}
             </p>
             <button type="submit" className="create-account-button">
               Create Account

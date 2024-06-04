@@ -7,6 +7,10 @@ import SellerSignUp from "./components/SignUp/SellerSignUp/SellerSignUp";
 import VerifyEmailPage from "./components/VerifyEmail/VerifyEmailPage";
 import VerifyEmailSuccessPage from "./components/Verified/VerifyEmailSuccessPage";
 import Login from "./components/Login/Login";
+import ForgotPasswordPage from "./components/ForgotPasswordPage/ForgotPasswordPage";
+import SentEmailPage from "./components/SentEmailPage/SentEmailPage";
+import ResetPasswordPage from "./components/ResetPasswordPage/ResetPasswordPage";
+import PasswordResetSuccessPage from "./components/PasswordResetSuccessPage/PasswordResetSuccessPage";
 
 const App = () => {
   return (
@@ -25,6 +29,13 @@ const App = () => {
               element={<VerifyEmailSuccessPage />}
             />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/sent-email-page" element={<SentEmailPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
+            <Route
+              path="/password-reset-success"
+              element={<PasswordResetSuccessPage />}
+            />
           </Routes>
         </div>
       </div>

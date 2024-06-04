@@ -1,4 +1,3 @@
-// src/components/LoginForm/LoginForm.js
 import React, { useState } from "react";
 import "./LoginForm.css";
 import Input from "../Input/input";
@@ -8,38 +7,51 @@ import SellerBg from "../../../assets/Seller BG.png";
 import BuyerBg from "../../../assets/Buyer BG.png";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [role, setRole] = useState("");
+  const [formObj, setFormObj] = useState({
+    email: "",
+    password: "",
+    showPassword: false,
+    role: "",
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (role === "") {
+    if (formObj.role === "") {
       alert("Please select a role.");
       return;
     }
+  };
+
+  const handleInputChange = (event, fieldName) => {
+    setFormObj({ ...formObj, [fieldName]: event.target.value });
+  };
+
+  const toggleShowPassword = () => {
+    setFormObj({ ...formObj, showPassword: !formObj.showPassword });
   };
 
   return (
     <div className="main-container">
       <div className="login-container">
         <div className="login-image">
-          <img src={role === "Buyer" ? BuyerBg : SellerBg} alt="Background" />
+          <img
+            src={formObj.role === "Buyer" ? BuyerBg : SellerBg}
+            alt="Background"
+          />
         </div>
         <div className="login-form">
           <img src={logo} alt="Logo" className="logo" />
           <h2>Login to your account</h2>
           <p>
-            Don’t have an account? <a href="//role-selection">SignUp here</a>
+            Don’t have an account? <a href="/role-selection">SignUp here</a>
           </p>
           <form onSubmit={handleSubmit}>
             <div className="role-selection">
               <label htmlFor="role">Role:</label>
               <select
                 id="role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
+                value={formObj.role}
+                onChange={(e) => handleInputChange(e, "role")}
                 required
               >
                 <option value="" disabled>
@@ -52,21 +64,21 @@ const LoginForm = () => {
             <Input
               type="email"
               label="Email Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formObj.email}
+              onChange={(e) => handleInputChange(e, "email")}
               required
             />
             <Input
-              type={showPassword ? "text" : "password"}
+              type={formObj.showPassword ? "text" : "password"}
               label="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formObj.password}
+              onChange={(e) => handleInputChange(e, "password")}
               required
               icon={
-                showPassword ? (
-                  <FaEyeSlash onClick={() => setShowPassword(false)} />
+                formObj.showPassword ? (
+                  <FaEyeSlash onClick={toggleShowPassword} />
                 ) : (
-                  <FaEye onClick={() => setShowPassword(true)} />
+                  <FaEye onClick={toggleShowPassword} />
                 )
               }
             />
@@ -74,7 +86,11 @@ const LoginForm = () => {
               Forgot password?
               <a href="/forgot-password"> Click here</a>
             </p>
-            <button type="submit" className="login-button" disabled={!role}>
+            <button
+              type="submit"
+              className="login-button"
+              disabled={!formObj.role}
+            >
               Login
             </button>
           </form>
