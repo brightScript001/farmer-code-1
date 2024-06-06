@@ -11,13 +11,14 @@ import ForgotPasswordPage from "./components/User Authentication/ForgotPasswordP
 import SentEmailPage from "./components/User Authentication/SentEmailPage/SentEmailPage";
 import ResetPasswordPage from "./components/User Authentication/ResetPasswordPage/ResetPasswordPage";
 import PasswordResetSuccessPage from "./components/User Authentication/PasswordResetSuccessPage/PasswordResetSuccessPage";
+import FarmerDashboard from "./components/FarmerDashboard/pages/Dashboard/dashboard";
 
 const App = () => {
   return (
     <Router>
       <div className="App">
         {/* <Navbar/> */}
-        <div className="content">
+        <div className="SignIn">
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/role-selection" element={<RoleSelection />} />
@@ -36,6 +37,11 @@ const App = () => {
               path="/password-reset-success"
               element={<PasswordResetSuccessPage />}
             />
+          </Routes>
+        </div>
+        <div className="FarmerDashboard">
+          <Routes>
+            <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
           </Routes>
         </div>
       </div>

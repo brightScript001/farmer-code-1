@@ -46,7 +46,7 @@ const LoginForm = () => {
             Don’t have an account? <a href="/role-selection">SignUp here</a>
           </p>
           <form onSubmit={handleSubmit}>
-            <div className="role-selection">
+            <div className="role-input">
               <label htmlFor="role">Role:</label>
               <select
                 id="role"

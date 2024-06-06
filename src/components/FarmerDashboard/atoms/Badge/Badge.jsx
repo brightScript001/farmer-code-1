@@ -1,17 +1,16 @@
 import React from "react";
 import "./Badge.css";
 
-const Badge = ({ children, color }) => {
+const Badge = ({ children, count, color = "red" }) => {
   return (
-    <span
-      style={{
-        backgroundColor: color,
-        padding: "5px 10px",
-        borderRadius: "10px",
-      }}
-    >
+    <div className="badge-container">
       {children}
-    </span>
+      {count > 0 && (
+        <span className="badge-count" style={{ backgroundColor: color }}>
+          {count}
+        </span>
+      )}
+    </div>
   );
 };
 
