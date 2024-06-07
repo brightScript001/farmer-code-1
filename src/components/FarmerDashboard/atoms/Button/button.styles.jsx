@@ -21,7 +21,7 @@ export const BaseButton = styled.button`
   &:hover {
     background-color: white;
     color: black;
-    border: 0.0625rem solid black;
+    /* border: 0.0625rem solid black; */
   }
 `;
 
@@ -51,16 +51,16 @@ export const BackButton = styled(BaseButton)`
 `;
 
 export const ActionButton = styled(BaseButton)`
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #e1f6ec;
+  color: #007c5b;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  min-width: auto;
+  height: auto;
+  text-transform: none;
 
   &:hover {
-    background-color: #3e8e41;
+    background-color: #d0f0e4;
   }
 `;

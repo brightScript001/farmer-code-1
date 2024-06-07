@@ -1,16 +1,18 @@
 import React from "react";
 import DashboardHeader from "../../organisms/DashboardHeader/DashboardHeader";
-import PendingOrderCard from "../../organisms/PendingOrdersSection/PendingOrdersCard";
-import SettledOrderCard from "../../organisms/SettledOrdersSection/SettledOrders";
-import YourRevenueCard from "../../organisms/YourRevenueSection/YourRevenue";
+import OrderBoard from "../../organisms/OrderBoard/OrderBoard";
+import PendingOrderList from "../../organisms/PendingOrders/PendingOrderList";
+import MarketInsights from "../../organisms/MarketInsightsList/MarketInsights";
+import Sidebar from "../../organisms/Sidebar/Sidebar";
 
 const Dashboard = () => {
   return (
     <div className="farmerDashboard">
       <DashboardHeader />
-      <PendingOrderCard />
-      <SettledOrderCard />
-      <YourRevenueCard />
+      <OrderBoard />
+      <PendingOrderList />
+      <MarketInsights />
+      <Sidebar />
     </div>
   );
 };

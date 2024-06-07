@@ -81,11 +81,12 @@
 .create-account-button {
   background-color: #4caf50;
   color: white;
-  padding: 10px;
+  padding: 0.625rem;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 20px;
+  border-radius: 0.375rem;
 }
 
 .create-account-button:hover {

@@ -1,40 +1,52 @@
-import React from "react";
-import { FaBell } from "react-icons/fa";
-import Avatar from "../../atoms/Avatar/Avatar";
-import SearchBar from "../../molecules/SearchBar/searchbar.component";
-import Button, {
-  BUTTON_TYPE_CLASSES,
-} from "../../atoms/Button/button.component";
-import AvatarImage from "../../../../assets/Avatar.png";
-import "./DashboardHeader.css";
-import { Link } from "react-router-dom";
-import Text from "../../atoms/Text/text.component";
-import Badge from "../../atoms/Badge/Badge";
+import React, { useState } from "react";
+import { userData } from "./headerData";
+import {
+  HeaderContainer,
+  BackButton,
+  SearchBar,
+  IconContainer,
+  UserProfile,
+} from "./headerStyledComponents";
+import backIcon from "../../../../assets/icons/left-arrow-backup-2-svgrepo-com.svg";
+import searchIcon from "../../../../assets/icons/search.svg";
+import bellIcon from "../../../../assets/icons/bell.svg";
 
-const DashboardHeader = () => (
-  <div className="dashboard-header">
-    <div className="back-home">
-      <Button buttonType={BUTTON_TYPE_CLASSES.back} />
-      <Link to="/home">
-        <Text variant="small2">Home</Text>
-      </Link>
-    </div>
+const DashboardHeader = () => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-    <SearchBar />
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
-    <div className="right-section">
-      <Badge count={7} color="red">
-        <FaBell className="notification-icon" />
-      </Badge>
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    console.log("Search term:", searchTerm);
+  };
 
-      <div className="profile">
-        <Avatar src={AvatarImage} alt="User Profile" />
-        <Text variant="medium" className="profile-name">
-          Idoma Prince
-        </Text>
-      </div>
-    </div>
-  </div>
-);
+  return (
+    <HeaderContainer>
+      <BackButton>
+        <img src={backIcon} alt="Back" />
+        Home
+      </BackButton>
+      <SearchBar as="form" onSubmit={handleSearchSubmit}>
+        <img src={searchIcon} alt="Search" />
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </SearchBar>
+      <IconContainer>
+        <img src={bellIcon} alt="Notifications" />
+        <UserProfile>
+          <img src={userData.avatarUrl} alt="User Avatar" />
+          <span>{userData.name}</span>
+        </UserProfile>
+      </IconContainer>
+    </HeaderContainer>
+  );
+};
 
 export default DashboardHeader;
